@@ -25,7 +25,6 @@ function PlayVideo({ videoId }) {
       setError("Failed to fetch video data.");
     }
   };
-console.log(apiData.statistics,"data is here")
   useEffect(() => {
     if (videoId) {
       fetchVideoData();
@@ -54,17 +53,17 @@ console.log(apiData.statistics,"data is here")
       ></iframe>
       <h3> {apiData?apiData.snippet.title:"Title Here"}</h3>
       <div className="play-video-info">
-        <p> {apiData? valueConverter( apiData.statistics.viewCount):"16k"} Views &bull; {moment(apiData.snippet.publishedAt).fromNow()} </p>
+        <p> {apiData? valueConverter( apiData?.statistics?.viewCount):"16k"} Views &bull; {moment(apiData.snippet.publishedAt).fromNow()} </p>
         <div>
           <span>
             {" "}
             <img src={like} alt="" />
-            {apiData.statistics.likeCount}
+            {apiData?.statistics?.likeCount}
           </span>
           <span>
             {" "}
             <img src={dislke} alt="" />
-            {apiData.statistics.dislikeCount}
+            {apiData?.statistics?.dislikeCount}
           </span>
 
           <span>
@@ -96,7 +95,7 @@ console.log(apiData.statistics,"data is here")
           series{" "}
         </p>
         <hr />
-        <h4> {apiData.statistics.commentCount} comments</h4>
+        <h4> {apiData?.statistics.commentCount} comments</h4>
         <div className="comment">
           <img src={user_profile} alt="" />
           <div>
